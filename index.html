@@ -6,10 +6,12 @@
     <title>Oppskrifts Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+                   Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+                   'Malgun Gothic', sans-serif;
         }
         .datalist-input::-webkit-calendar-picker-indicator {
             display: none;
@@ -138,7 +140,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-blue-500">
     <!-- Notification Container -->
     <div id="notificationContainer" class="fixed top-4 right-4 z-50 space-y-2 pointer-events-none">
         <!-- Notifications will be inserted here -->
@@ -148,29 +150,29 @@
     <header class="bg-white shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold text-gray-800">Oppskrifts Admin</h1>
+                <h1 class="text-2xl font-black text-red-800">Pretendard Font Example</h1>
                 <div class="flex gap-2">
                     <button onclick="copyTemplate()" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
-                        📋 Kopier Mal
+                        📋  hello
                     </button>
                     
                     <div class="relative">
                         <button onclick="toggleExportMenu()" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-                            📤 Eksporter ▼
+                            📤 hi ▼
                         </button>
                         <div id="exportMenu" class="dropdown-menu">
                             <button onclick="exportDatabase('file')" class="w-full text-left px-4 py-2 hover:bg-gray-100 border-b">
-                                💾 Eksporter til fil
+                                💾  안녕
                             </button>
                             <button onclick="exportDatabase('clipboard')" class="w-full text-left px-4 py-2 hover:bg-gray-100">
-                                📋 Kopier til utklippstavle
+                                📋 안녕하세요
                             </button>
                         </div>
                     </div>
                     
                     <input type="file" id="importFile" accept=".json" class="hidden" onchange="importDatabase(event)">
                     <button onclick="document.getElementById('importFile').click()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        📥 Importer
+                        📥 save
                     </button>
                 </div>
             </div>
@@ -183,7 +185,7 @@
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg shadow-md p-4">
                     <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-lg font-semibold text-gray-700">Oppskrifter</h2>
+                        <h2 class="text-lg font-extrabold text-lime-600">프리텐다드</h2>
                         <span class="text-sm text-gray-500" id="recipeCount">0 oppskrifter</span>
                     </div>
                     
@@ -204,8 +206,8 @@
                         </div>
                     </div>
                     
-                    <button onclick="clearForm()" class="w-full mb-3 px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition">
-                        <i class="fas fa-plus mr-2"></i>Ny oppskrift
+                    <button onclick="clearForm()" class="w-full mb-3 px-4 py-2 bg-lime-500 text-gray-600 rounded-lg hover:bg-amber-600 transition">
+                        <i class="fas fa-plus mr-2"></i>눌러보세요
                     </button>
                     <div id="recipeList" class="space-y-2 max-h-[calc(100vh-360px)] overflow-y-auto custom-scroll">
                         <!-- Recipe items will be inserted here -->
@@ -711,7 +713,7 @@ VIKTIGE MERKNADER: - Tittel og porsjoner er PÅKREVD - Du trenger ikke spesifise
             
             try {
                 await navigator.clipboard.writeText(fullTemplate);
-                showNotification('Oppskriftmal kopiert til utklippstavlen! Bruk den med AI-systemer.', 'success');
+                showNotification('안녕?', 'success');
             } catch (err) {
                 // Fallback for older browsers
                 const textarea = document.createElement('textarea');
@@ -754,7 +756,7 @@ VIKTIGE MERKNADER: - Tittel og porsjoner er PÅKREVD - Du trenger ikke spesifise
             const container = document.getElementById('notificationContainer');
             const notification = document.createElement('div');
             
-            const bgColor = type === 'success' ? 'bg-green-500' : 
+            const bgColor = type === 'success' ? 'bg-yellow-500' : 
                            type === 'error' ? 'bg-red-500' : 
                            type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500';
             
